@@ -4,91 +4,79 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star } from "lucide-react"; // You can also use a custom SVG if needed
 
 const projects = [
-   {
+  {
     title: "JODXZEUS ESPORTS LOGO",
-    image: "/projects/FORINSTA-01.png",
+    image: "/projects/FORINSTA-01.webp",
     description: "Created for a gaming YouTube Channel.",
   },
   {
     title: "IDEAL GAMERZ LOGO",
-    image: "/projects/IDEAL GAMERZ LOGO-01.png",
+    image: "/projects/IDEAL GAMERZ LOGO-01.webp",
     description: "Minimalist logo for a gaming YouTube Channel.",
   },
   {
     title: "Sneekers Social Media Post",
-    image: "/projects/SHoe.png",
+    image: "/projects/SHoe.webp",
     description: "Practing my skills with a sneaker post.",
   },
   {
     title: "Anime + Gaming Style banner",
-    image: "/projects/XXbanner2.png",
+    image: "/projects/XXbanner2.webp",
     description: "Created for a gaming YouTube Channel.",
   },
-
-   {
+  {
     title: "Crousel Social media post",
-    image: "/projects/1.png",
+    image: "/projects/1.webp",
     description: "Designed for a Society Event.",
   },
-   {
+  {
     title: "MLSA LOGO",
-    image: "/projects/MLSA SIilver Blue LOGO with mockup.png",
+    image: "/projects/MLSA SIilver Blue LOGO with mockup.webp",
     description: "Designed for MLSA Society.",
   },
-
   {
     title: "Tech'ON 2023 Event Poster",
-    image: "/projects/techon 2023.png",
+    image: "/projects/techon 2023.webp",
     description: "Created for Society Event.",
   },
-
   {
     title: "Trifold Brochure For Cafe",
-    image: "/projects/TRI-fold for insta.png",
+    image: "/projects/TRI-fold for insta.webp",
     description: "Designed for the Cafe shop Menu Card.",
   },
-
-   {
+  {
     title: "Burger Lab Menu Card",
-    image: "/projects/fast food 2.png",
+    image: "/projects/fast food 2.webp",
     description: "Single Page Menu Card for Burger Lab.",
   },
-
-   {
+  {
     title: "Malware Awareness Infographic",
-    image: "/projects/INFOGRAPHIC part 2.png",
+    image: "/projects/INFOGRAPHIC part 2.webp",
     description: "A project to design a Malware Awareness Infographic.",
   },
- {
+  {
     title: "MLSA Society Standee design",
-    image: "/projects/Standee 2.png",
+    image: "/projects/Standee 2.webp",
     description: "Standee design created for event.",
   },
-
-   {
+  {
     title: "SC-FI Thumbnail",
-    image: "/projects/right size.png",
+    image: "/projects/right size.webp",
     description: "Showcasing of Sci-fi thumbnails.",
   },
-
-   {
+  {
     title: "Gamming Banners",
-    image: "/projects/right size 2.png",
+    image: "/projects/right size 2.webp",
     description: "Showcasing of Gamming thumbnails.",
   },
-
- 
-  
-
-   {
+  {
     title: "Anime logo",
-    image: "/projects/Aniverse.png",
+    image: "/projects/Aniverse.webp",
     description: "logo created for anime fan club.",
   },
-
   {
     title: "Fivver Servers Banner",
-    image: "/projects/Ali 1100x740 2.png",
+    image: "/projects/Ali 1100x740 2.webp",
     description: "Fivver gig image to display Ali azan services.",
   },
 ];

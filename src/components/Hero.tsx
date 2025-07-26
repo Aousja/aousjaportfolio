@@ -124,7 +124,7 @@ const Hero = () => {
           <div className="relative">
             <div className="glass rounded-full p-1 w-80 h-80 border border-primary/30">
               <img
-                src="/WhatsApp Image 2025-06-06 at 15.11.30_d0364db4.png"
+                src="/WhatsApp Image 2025-06-06 at 15.11.30_d0364db4.webp"
                 alt="Aousja - Creative Full-Stack Developer"
                 className="rounded-full w-full h-full object-cover"
               />
