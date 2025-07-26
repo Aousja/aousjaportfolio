@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================
+   Design System (HSL Colors)
+   =========================== */
+@layer base {
+  :root {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 182 88% 25%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 178 82% 54%;
+    --secondary-foreground: 0 0% 13%;
+    --muted: 0 0% 5%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 176 83% 51%;
+    --accent-foreground: 0 0% 13%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 10%;
+    --input: 0 0% 8%;
+    --ring: 182 88% 25%;
+    --radius: 0.75rem;
+
+    --glass-bg: 255 255 255 / 0.03;
+    --glass-border: 255 255 255 / 0.08;
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+    --gradient-primary: linear-gradient(135deg, hsl(182 88% 25%) 0%, hsl(178 82% 54%) 100%);
+  }
+
+  .dark {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 182 88% 25%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 178 82% 54%;
+    --secondary-foreground: 0 0% 13%;
+    --muted: 0 0% 5%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 176 83% 51%;
+    --accent-foreground: 0 0% 13%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 10%;
+    --input: 0 0% 8%;
+    --ring: 182 88% 25%;
+  }
+
+  body {
+    background-color: hsl(0 0% 0%);
+    color: hsl(var(--foreground));
+    font-family: system-ui, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+
+    background:
+      radial-gradient(circle at 0% 0%, hsl(178 100% 60% / 0.1), transparent 35%),
+      radial-gradient(circle at 100% 0%, hsl(182 100% 65% / 0.1), transparent 35%),
+      radial-gradient(circle at 100% 100%, hsl(176 100% 65% / 0.1), transparent 35%),
+      radial-gradient(circle at 0% 100%, hsl(182 100% 70% / 0.1), transparent 35%),
+      radial-gradient(circle at center, hsl(0 0% 0%) 10%, transparent 70%);
+
+    filter: blur(90px) brightness(1);
+    animation: smoothTravelingGlow 6s ease-in-out infinite;
+    opacity: 0.5;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+
+    background:
+      radial-gradient(ellipse at 50% 0%, hsl(178 100% 65% / 0.08), transparent 20%),
+      radial-gradient(ellipse at 100% 50%, hsl(176 100% 65% / 0.08), transparent 20%),
+      radial-gradient(ellipse at 50% 100%, hsl(182 100% 70% / 0.08), transparent 20%),
+      radial-gradient(ellipse at 0% 50%, hsl(178 100% 65% / 0.08), transparent 20%);
+
+    filter: blur(60px) brightness(0.95);
+    animation: smoothEdgeGlow 12s ease-in-out infinite;
+    opacity: 0.5;
+  }
+}
+
+/* ========================
+   Reusable UI Components
+   ======================== */
+@layer components {
+  .background-glow {
+    @apply fixed w-full h-full -z-20 pointer-events-none;
+
+    background:
+      radial-gradient(circle at 0% 0%, hsl(178 100% 60% / 0.08), transparent 25%),
+      radial-gradient(circle at 100% 0%, hsl(182 100% 65% / 0.08), transparent 25%),
+      radial-gradient(circle at 0% 100%, hsl(176 100% 65% / 0.08), transparent 25%),
+      radial-gradient(circle at 100% 100%, hsl(182 100% 70% / 0.08), transparent 25%),
+      radial-gradient(circle at center, hsl(0 0% 0%) 15%, transparent 60%);
+
+    filter: blur(30px) brightness(0.85);
+    opacity: 0.25;
+  }
+
+  .glass {
+    background: rgba(var(--glass-bg));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(var(--glass-border));
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-nav {
+    @apply glass rounded-full;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .jet-black-center {
+  background: radial-gradient(
+    circle at center,
+    hsl(0 0% 0%) 30%,
+    hsl(0 0% 5%) 45%,
+    hsl(182 100% 60% / 0.1) 60%,
+    transparent 75%
+  );
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  animation: pulseCenter 10s ease-in-out infinite;
+}
+
+.masonry-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+
+}
+
+/* ========================
+   Smooth Animation Keyframes
+   ======================== */
+@layer utilities {
+
+ @keyframes smoothTravelingGlow {
+  0%, 100% {
+    filter: brightness(1.1) blur(30px);
+    opacity: 0.4;
+  }
+  50% {
+    filter: brightness(1.8) blur(60px);
+    opacity: 1;
+  }
+}
+
+@keyframes smoothEdgeGlow {
+  0%, 100% {
+    filter: brightness(1) blur(20px);
+    opacity: 0.3;
+  }
+  50% {
+    filter: brightness(1.4) blur(40px);
+    opacity: 0.5;
+  }
+}
+
+
+  @keyframes pulseCenter {
+  0%, 100% {
+    opacity: 0.9;
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(28px);
+  }
+}
+
+
+  .animate-corner-glow {
+    animation: smoothTravelingGlow 10s ease-in-out infinite;
+  }
+
+  .animate-edge-glow {
+    animation: smoothEdgeGlow 10s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
