@@ -108,7 +108,9 @@ const SkillSection = () => {
                   duration: 0.15,
                   ease: "easeOut",
                 }}
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full backdrop-blur-md bg-white/10 border border-white/20 text-white flex items-center justify-center absolute transition-all duration-200 ease-in"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full backdrop-blur-md
+  flex items-center justify-center absolute transition-all duration-200 ease-in
+  glass-icon"
                 style={{
                   top: `calc(50% + ${y}px - 2rem)`,
                   left: `calc(50% + ${x}px - 2rem)`,

@@ -7,54 +7,78 @@
    =========================== */
 @layer base {
   :root {
+  --background: 235 45% 92%;              /* Soft periwinkle */
+  --foreground: 235 30% 15%;              /* Deep navy text */
+
+  --card: 235 50% 95%;                    /* Light lavender-blue */
+  --card-foreground: 235 30% 15%;
+
+  --popover: 235 45% 94%;
+  --popover-foreground: 235 30% 15%;
+
+  --primary: 210 100% 66%;                /* Neon cyan-blue */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 180 90% 65%;               /* Mint green */
+  --secondary-foreground: 235 30% 10%;
+
+  --muted: 235 30% 88%;                   /* Dim violet-gray */
+  --muted-foreground: 235 20% 35%;
+
+  --accent: 195 90% 75%;                  /* Aqua sky */
+  --accent-foreground: 235 30% 20%;
+
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 235 30% 85%;
+  --input: 235 30% 88%;
+  --ring: 210 100% 66%;
+
+   --glass-bg: 0 0% 0% / 0.15;       /* black tint at 15% opacity */
+  --glass-border: 0 0% 0% / 0.25;   /* black border at 25% opacity */
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* soft black shadow */
+   --glass-text: 0, 0, 0; /* black in light mode */
+
+
+  --gradient-primary: linear-gradient(135deg, hsl(210 100% 66%), hsl(180 90% 65%));
+  }
+
+  .dark {
+    /* 🌙 Dark Theme Colors */
     --background: 0 0% 3%;
     --foreground: 0 0% 100%;
+
     --card: 0 0% 8%;
     --card-foreground: 0 0% 95%;
+
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 95%;
+
     --primary: 182 88% 25%;
     --primary-foreground: 0 0% 100%;
+
     --secondary: 178 82% 54%;
     --secondary-foreground: 0 0% 13%;
+
     --muted: 0 0% 5%;
     --muted-foreground: 0 0% 63%;
+
     --accent: 176 83% 51%;
     --accent-foreground: 0 0% 13%;
+
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
+
     --border: 0 0% 10%;
     --input: 0 0% 8%;
     --ring: 182 88% 25%;
-    --radius: 0.75rem;
 
     --glass-bg: 255 255 255 / 0.03;
     --glass-border: 255 255 255 / 0.08;
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 
     --gradient-primary: linear-gradient(135deg, hsl(182 88% 25%) 0%, hsl(178 82% 54%) 100%);
-  }
-
-  .dark {
-    --background: 0 0% 3%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 182 88% 25%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 178 82% 54%;
-    --secondary-foreground: 0 0% 13%;
-    --muted: 0 0% 5%;
-    --muted-foreground: 0 0% 63%;
-    --accent: 176 83% 51%;
-    --accent-foreground: 0 0% 13%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 10%;
-    --input: 0 0% 8%;
-    --ring: 182 88% 25%;
   }
 
   body {
@@ -66,24 +90,29 @@
     position: relative;
   }
 
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
+ body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
 
-    background:
-      radial-gradient(circle at 0% 0%, hsl(178 100% 60% / 0.1), transparent 35%),
-      radial-gradient(circle at 100% 0%, hsl(182 100% 65% / 0.1), transparent 35%),
-      radial-gradient(circle at 100% 100%, hsl(176 100% 65% / 0.1), transparent 35%),
-      radial-gradient(circle at 0% 100%, hsl(182 100% 70% / 0.1), transparent 35%),
-      radial-gradient(circle at center, hsl(0 0% 0%) 10%, transparent 70%);
+  background:
+    radial-gradient(circle at 0% 0%, hsl(178 100% 60% / 0.1), transparent 35%),
+    radial-gradient(circle at 100% 0%, hsl(182 100% 65% / 0.1), transparent 35%),
+    radial-gradient(circle at 100% 100%, hsl(176 100% 65% / 0.1), transparent 35%),
+    radial-gradient(circle at 0% 100%, hsl(182 100% 70% / 0.1), transparent 35%),
+    radial-gradient(
+      circle at center,
+      hsl(var(--background) / 0.6) 10%,   /* 🌗 theme-aware center color */
+      transparent 70%
+    );
 
-    filter: blur(90px) brightness(1);
-    animation: smoothTravelingGlow 6s ease-in-out infinite;
-    opacity: 0.5;
-  }
+  filter: blur(90px) brightness(1);
+  animation: smoothTravelingGlow 6s ease-in-out infinite;
+  opacity: 0.5;
+}
+
 
   body::after {
     content: "";
@@ -109,18 +138,23 @@
    ======================== */
 @layer components {
   .background-glow {
-    @apply fixed w-full h-full -z-20 pointer-events-none;
+  @apply fixed w-full h-full -z-20 pointer-events-none;
 
-    background:
-      radial-gradient(circle at 0% 0%, hsl(178 100% 60% / 0.08), transparent 25%),
-      radial-gradient(circle at 100% 0%, hsl(182 100% 65% / 0.08), transparent 25%),
-      radial-gradient(circle at 0% 100%, hsl(176 100% 65% / 0.08), transparent 25%),
-      radial-gradient(circle at 100% 100%, hsl(182 100% 70% / 0.08), transparent 25%),
-      radial-gradient(circle at center, hsl(0 0% 0%) 15%, transparent 60%);
+  background:
+    radial-gradient(circle at 0% 0%, hsl(178 100% 60% / 0.08), transparent 25%),
+    radial-gradient(circle at 100% 0%, hsl(182 100% 65% / 0.08), transparent 25%),
+    radial-gradient(circle at 0% 100%, hsl(176 100% 65% / 0.08), transparent 25%),
+    radial-gradient(circle at 100% 100%, hsl(182 100% 70% / 0.08), transparent 25%),
+    radial-gradient(
+      circle at center,
+      hsl(var(--background) / 0.8) 10%,   /* Theme-aware center */
+      transparent 60%
+    );
 
-    filter: blur(30px) brightness(0.85);
-    opacity: 0.25;
-  }
+  filter: blur(30px) brightness(0.85);
+  opacity: 0.25;
+}
+
 
   .glass {
     background: rgba(var(--glass-bg));
@@ -143,7 +177,8 @@
     background-clip: text;
   }
 
-  .jet-black-center {
+ /* Jet black center only in dark mode */
+.dark .jet-black-center {
   background: radial-gradient(
     circle at center,
     hsl(0 0% 0%) 30%,
@@ -151,10 +186,40 @@
     hsl(182 100% 60% / 0.1) 60%,
     transparent 75%
   );
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-  animation: pulseCenter 10s ease-in-out infinite;
+
+  
 }
+
+.light .light-text-white {
+  color: white;
+}
+
+/* Light mode frost glass for orbiting icons */
+.light .glass-icon {
+  background-color: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: black;
+}
+
+.dark .glass-icon {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+
+/* Soft neon glow center for light mode */
+.jet-black-center {
+  background: radial-gradient(
+    circle at center,
+    hsl(192 95% 90%) 20%,
+    hsl(192 95% 80%) 40%,
+    hsl(192 95% 70% / 0.1) 60%,
+    transparent 75%
+  );
+}
+
+
 
 .masonry-column {
   display: flex;
@@ -222,5 +287,15 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  html,
+  body,
+  * {
+    transition:
+      background-color 0.4s ease,
+      color 0.4s ease,
+      border-color 0.4s ease,
+      box-shadow 0.4s ease;
   }
 }

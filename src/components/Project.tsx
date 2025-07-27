@@ -195,9 +195,9 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white/5 border border-cyan-500/10 p-6 rounded-xl shadow-[0_0_20px_rgba(0,255,255,0.1)] hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] transition-shadow duration-300 text-center"
+              className="glass p-6 rounded-xl shadow-[0_0_20px_rgba(0,255,255,0.1)] hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] transition-shadow duration-300 text-center"
             >
-              <p className="text-sm text-gray-300 italic mb-4">“{testimonial.feedback}”</p>
+              <p className="text-sm italic mb-4 text-gray-300 dark:text-gray-300 light-text-white">“{testimonial.feedback}”</p>
               <h4 className="font-semibold text-cyan-300">{testimonial.name}</h4>
               <div className="flex justify-center mt-3 gap-1">
                 {[...Array(5)].map((_, i) => (

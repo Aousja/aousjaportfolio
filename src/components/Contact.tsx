@@ -33,7 +33,7 @@ const Contact = () => {
       if (response.ok) {
         setFormSubmitted(true);
         setFormData({ name: "", email: "", message: "" });
-        setTimeout(() => setFormSubmitted(false), 3500); // hide after 3.5s
+        setTimeout(() => setFormSubmitted(false), 3500);
       } else {
         alert("Something went wrong. Please try again.");
       }
@@ -45,8 +45,8 @@ const Contact = () => {
 
   return (
     <section
-      id="contact"
-      className="relative px-4 sm:px-6 md:px-8 lg:px-10 py-32 text-white overflow-hidden"
+         id="contact"
+      className="w-full max-w-2xl mx-auto p-6 sm:p-8 rounded-xl relative"
     >
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
@@ -65,7 +65,7 @@ const Contact = () => {
 
       <motion.form
         onSubmit={handleSubmit}
-        className="w-full max-w-2xl mx-auto bg-white/5 backdrop-blur-md p-6 sm:p-8 rounded-xl border border-cyan-400/10 shadow-[0_0_40px_rgba(0,255,255,0.1)] relative"
+       className="glass w-full max-w-2xl mx-auto p-6 sm:p-8 rounded-xl relative"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -88,7 +88,7 @@ const Contact = () => {
           )}
         </AnimatePresence>
 
-        <div className="mb-6">
+        <div className="mb-5">
           <label className="block mb-2 text-cyan-300">Name</label>
           <input
             type="text"
@@ -96,10 +96,10 @@ const Contact = () => {
             required
             value={formData.name}
             onChange={handleChange}
-            className="w-full p-3 bg-transparent border border-cyan-500/20 rounded-md text-white focus:outline-none focus:border-cyan-300 transition"
+            className="w-full p-3 bg-transparent border border-cyan-500/20 rounded-md text-white focus:outline-none focus:border-cyan-300 transition text-sm"
           />
         </div>
-        <div className="mb-6">
+        <div className="mb-5">
           <label className="block mb-2 text-cyan-300">Email</label>
           <input
             type="email"
@@ -107,7 +107,7 @@ const Contact = () => {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-3 bg-transparent border border-cyan-500/20 rounded-md text-white focus:outline-none focus:border-cyan-300 transition"
+            className="w-full p-3 bg-transparent border border-cyan-500/20 rounded-md text-white focus:outline-none focus:border-cyan-300 transition text-sm"
           />
         </div>
         <div className="mb-6">
@@ -118,22 +118,22 @@ const Contact = () => {
             rows={5}
             value={formData.message}
             onChange={handleChange}
-            className="w-full p-3 bg-transparent border border-cyan-500/20 rounded-md text-white focus:outline-none focus:border-cyan-300 transition resize-none"
+            className="w-full p-3 bg-transparent border border-cyan-500/20 rounded-md text-white focus:outline-none focus:border-cyan-300 transition resize-none text-sm"
           />
         </div>
         <button
           type="submit"
-          className="w-full py-3 bg-gradient-to-r from-cyan-400 to-pink-500 hover:from-pink-500 hover:to-cyan-400 rounded-md text-white font-semibold transition duration-300"
+          className="w-full py-3 text-sm sm:text-base bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-purple-500 hover:to-cyan-400 rounded-md text-white font-semibold transition duration-300"
         >
           Send Message
         </button>
       </motion.form>
 
       {/* Social Links */}
-      <div className="mt-16 text-center space-y-4">
-        <p className="text-gray-400">or reach out directly:</p>
+      <div className="mt-12 sm:mt-16 text-center space-y-4">
+        <p className="text-gray-400 text-sm sm:text-base">or reach out directly:</p>
         <div className="flex justify-center gap-6 text-cyan-300 text-lg">
-          <a href="aousja5@email.com">
+          <a href="mailto:aousja5@email.com">
             <Mail className="hover:text-white transition" />
           </a>
           <a href="https://github.com/Aousja" target="_blank">
@@ -148,39 +148,35 @@ const Contact = () => {
         </div>
       </div>
 
-
       {/* Project Report Download */}
+      <div className="mt-16 sm:mt-24 text-center px-4">
+        <motion.h2 className="text-sm sm:text-lg text-300 mb-6 gradient-text">
+          Curious how this website is made? You can download the full report below.
+        </motion.h2>
 
-<div className="mt-24 text-center">
-  <p className="text-lg sm:text-xl text-gray-300 mb-6 px-4">
-    Want to know how this website is made? You can download the full report below.
-  </p>
-
-  <a
-    href="https://drive.google.com/file/d/1VXtrhz6kwVBUGH2mT-XcTSgGbSj3y6Tv/view?usp=sharing"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 bg-white/10 text-white border border-white/20 px-6 py-3 rounded-lg hover:bg-white/20 transition duration-300 shadow-md hover:shadow-cyan-500/30"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"
-      />
-    </svg>
-    <span>Download Website Report (PDF)</span>
-  </a>
-</div>
-
-
+        <a
+          href="https://drive.google.com/file/d/1VXtrhz6kwVBUGH2mT-XcTSgGbSj3y6Tv/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex flex-wrap justify-center items-center gap-2 bg-white/10  border border-white/20 px-5 py-3 sm:px-6 sm:py-3 rounded-lg hover:bg-white/20 transition duration-300 shadow-md hover:shadow-cyan-500/30 text-sm sm:text-base"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"
+            />
+          </svg>
+          <span>Download Website Report (PDF)</span>
+        </a>
+      </div>
     </section>
   );
 };
