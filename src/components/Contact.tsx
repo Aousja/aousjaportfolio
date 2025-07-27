@@ -58,7 +58,7 @@ const Contact = () => {
         Let's Connect
       </motion.h2>
 
-      <p className="text-center text-gray-400 mb-16 max-w-xl mx-auto px-4">
+      <p className="text-center text-cyan-500 mb-16 max-w-xl mx-auto px-4">
         Have a project, idea, or just want to say hi? Fill out the form and I'll
         get back to you.
       </p>
@@ -89,7 +89,7 @@ const Contact = () => {
         </AnimatePresence>
 
         <div className="mb-5">
-          <label className="block mb-2 text-cyan-300">Name</label>
+          <label className="block mb-2 text-[#30516d] dark:text-cyan-300">Name</label>
           <input
             type="text"
             name="name"
@@ -100,7 +100,7 @@ const Contact = () => {
           />
         </div>
         <div className="mb-5">
-          <label className="block mb-2 text-cyan-300">Email</label>
+          <label className="block mb-2 text-[#30516d] dark:text-cyan-300">Email</label>
           <input
             type="email"
             name="email"
@@ -111,7 +111,7 @@ const Contact = () => {
           />
         </div>
         <div className="mb-6">
-          <label className="block mb-2 text-cyan-300">Message</label>
+          <label className="block mb-2 text-[#30516d] dark:text-cyan-300">Message</label>
           <textarea
             name="message"
             required
@@ -131,7 +131,7 @@ const Contact = () => {
 
       {/* Social Links */}
       <div className="mt-12 sm:mt-16 text-center space-y-4">
-        <p className="text-gray-400 text-sm sm:text-base">or reach out directly:</p>
+        <p className="text-[#30516d] dark:text-cyan-100 text-sm sm:text-base">or reach out directly:</p>
         <div className="flex justify-center gap-6 text-cyan-300 text-lg">
           <a href="mailto:aousja5@email.com">
             <Mail className="hover:text-white transition" />

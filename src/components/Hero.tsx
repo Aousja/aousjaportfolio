@@ -52,7 +52,7 @@ const Hero = () => {
 
             <div className="flex items-center justify-center lg:justify-start gap-2 text-2xl md:text-3xl font-heading font-medium text-foreground">
               <span>Creative</span>
-              <Zap className="text-accent w-8 h-8 animate-pulse" />
+              <Zap className="w-8 h-8 animate-pulse text-yellow-400 dark:text-accent" />
               <span>Full-Stack</span>
             </div>
 
@@ -63,7 +63,7 @@ const Hero = () => {
 
           <p
             className="text-lg md:text-xl max-w-lg mx-auto lg:mx-0 leading-relaxed"
-            style={{ color: "#B0B0B0" }}
+        
           >
             I design modern UI, build seamless web & mobile apps, and craft
             digital experiences that stand out.
@@ -123,14 +123,21 @@ const Hero = () => {
         >
           <div className="relative">
             <div className="glass rounded-full p-1 w-80 h-80 border border-primary/30">
-              <img
-                src="/WhatsApp Image 2025-06-06 at 15.11.30_d0364db4.webp"
-                alt="Aousja - Creative Full-Stack Developer"
-                className="rounded-full w-full h-full object-cover"
-              />
+               <img
+              src="/WhatsApp Image 2025-06-06 at 15.11.30_d0364db4.webp"
+               alt="Aousja - Creative Full-Stack Developer"
+                   className="rounded-full w-full h-full object-cover dark:block hidden"
+                  />
+  
+                   {/* Light Mode Image */}
+                   <img
+                    src="/BrightImage.webp"
+                   alt="Aousja - Creative Full-Stack Developer (Light Mode)"
+                   className="rounded-full w-full h-full object-cover dark:hidden block"
+  />
             </div>
             <div className="absolute -top-4 -right-4 glass rounded-full p-3 animate-bounce">
-              <Zap className="w-6 h-6 text-accent" />
+              <Zap className="w-6 h-6 text-cyan-950 dark:text-accent" />
             </div>
           </div>
         </motion.div>

@@ -35,8 +35,8 @@
   --input: 235 30% 88%;
   --ring: 210 100% 66%;
 
-   --glass-bg: 0 0% 0% / 0.15;       /* black tint at 15% opacity */
-  --glass-border: 0 0% 0% / 0.25;   /* black border at 25% opacity */
+   --glass-bg: 0 0% 0% / 0.05;       /* black tint at 15% opacity */
+  --glass-border: 0 0% 0% / 0.1;   /* black border at 25% opacity */
   --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* soft black shadow */
    --glass-text: 0, 0, 0; /* black in light mode */
 
