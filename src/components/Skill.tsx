@@ -114,9 +114,12 @@ const SkillSection = () => {
                 style={{
                   top: `calc(50% + ${y}px - 2rem)`,
                   left: `calc(50% + ${x}px - 2rem)`,
+                  
                 }}
               >
-                <div className="text-2xl sm:text-3xl">{tech.icon}</div>
+                <div className="text-2xl sm:text-3xl" style={{ color: tech.color }}>
+  {tech.icon}
+</div>
               </motion.div>
             );
           })}
