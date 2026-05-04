@@ -23,8 +23,25 @@ const projects = [
   { title: "Anime logo", image: "/projects/Aniverse.webp", description: "logo created for anime fan club.", category: "design" },
   { title: "Fivver Servers Banner", image: "/projects/Ali 1100x740 2.webp", description: "Fivver gig image to display Ali azan services.", category: "design" },
   // Add your dev projects here:
-  // { title: "Portfolio Website", image: "/projects/portfolio.webp", description: "My personal portfolio.", category: "web" },
+   {
+  title: "MujahidSecurity.UK",
+  image: "/projects/MujahidAcademy.png", // actual image/screenshot
+  link: "https://mujahid-securityuk-yi2d.vercel.app/",
+  description: "Client parallax website",
+  category: "web"
+},
+{
+  title: "IslamifyApp",
+  image: "/projects/Islamify.png", // actual image/screenshot
+  link: "https://islamifyweb.netlify.app/",
+  description: "Islamic Audio App",
+  category: "mobile"
+}
+
+
   // { title: "Food Delivery App", image: "/projects/app.webp", description: "React Native app.", category: "mobile" },
+  // { title: "Food Delivery App", image: "/projects/app.webp", description: "React Native app.", category: "mobile" },
+
 ];
 
 const testimonials = [
@@ -118,7 +135,13 @@ const Projects = () => {
           <motion.div
             key={project.title}
             className="relative mb-6 cursor-pointer group overflow-hidden rounded-xl border border-cyan-500/20 bg-white/5 shadow-[0_0_20px_rgba(0,255,255,0.1)] hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] transition-shadow duration-300"
-            onClick={() => setSelected(projects.indexOf(project))}
+            onClick={() => {
+  if (project.link) {
+    window.open(project.link, "_blank");
+  } else {
+    setSelected(projects.indexOf(project));
+  }
+}}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
