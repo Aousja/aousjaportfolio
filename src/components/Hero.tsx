@@ -82,7 +82,7 @@ const Hero = () => {
                 Hire Me
               </button>
               <a
-                href="https://drive.google.com/uc?export=download&id=1Oj8K2PcSjdZKiej7YbUUdfXU1NiN0gEe"
+                href="https://drive.google.com/file/d/1a6N6Jjloj0iJiJmL71jmOpsG6x-7GzWS/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
